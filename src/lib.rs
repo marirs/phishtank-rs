@@ -1,10 +1,18 @@
+/// Phishtank API
+/// Simple API to acces the Phishtank API to download the database or lookup for url
+/// ## Example Usage
 ///
+/// ```rust
+/// use phishtank::PhishtankClient;
+///
+/// let client = PhishtankClient::new("YOUR API KEY");
+/// ```
+mod de;
 mod download;
 mod utils;
 
 pub mod error;
 use error::PhishtankError;
-
 pub type PhishtankResult<T> = Result<T, PhishtankError>;
 
 static DEFAULT_USER_AGENT: &str = "rust-client/phishtank+https://github.com/marirs/phishtank-rs";
@@ -51,6 +59,9 @@ mod tests {
         let client = PhishtankClient::new("someapikey");
         assert_eq!(client.api_key, "someapikey");
         assert_eq!(client.data_endpoint, "https://data.phishtank.com/data");
-        assert_eq!(client.check_endpoint, "https://checkurl.phishtank.com/checkurl");
+        assert_eq!(
+            client.check_endpoint,
+            "https://checkurl.phishtank.com/checkurl"
+        );
     }
 }
