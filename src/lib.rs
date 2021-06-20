@@ -56,13 +56,13 @@ mod tests {
     use super::PhishtankClient;
 
     #[test]
-    fn test_vtclient() {
+    fn test_phishtank_client() {
         let client = PhishtankClient::new("someapikey");
         assert_eq!(client.api_key, "someapikey");
         assert_eq!(client.data_endpoint, "https://data.phishtank.com/data");
         assert_eq!(
             client.check_endpoint,
-            "https://checkurl.phishtank.com/checkurl"
+            "https://checkurl.phishtank.com/checkurl/"
         );
     }
 }
