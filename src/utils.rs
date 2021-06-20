@@ -1,4 +1,4 @@
-use crate::{PhishtankResult, PhishtankError};
+use crate::{PhishtankError, PhishtankResult};
 use reqwest::{
     blocking::{Client, Response},
     StatusCode,
@@ -21,7 +21,7 @@ where
             } else {
                 Ok(serde_json::from_str(&resp_text)?)
             }
-        }, // 200
+        } // 200
         _ => Err(status.into()),
     }
 }
