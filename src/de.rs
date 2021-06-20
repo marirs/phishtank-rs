@@ -28,17 +28,28 @@ pub struct Details {
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Deserialize)]
-pub struct CheckUrl {
+pub struct CheckUrlResult {
+    pub meta: Meta,
+    pub results: Results,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Deserialize)]
+pub struct Meta {
+    pub timestamp: String,
+    pub serverid: String,
+    pub status: String,
+    pub requestid: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Deserialize)]
+pub struct Results {
     pub url: String,
-    pub in_database: String,
-    #[serde(deserialize_with = "string_to_usize")]
-    pub phish_id: usize,
-    pub phish_detail_page: String,
-    #[serde(deserialize_with = "string_to_bool")]
-    pub verified: bool,
-    pub verified_at: String,
-    #[serde(deserialize_with = "string_to_bool")]
-    pub valid: bool,
+    pub in_database: bool,
+    pub phish_id: Option<String>,
+    pub phish_detail_page: Option<String>,
+    pub verified: Option<bool>,
+    pub verified_at: Option<String>,
+    pub valid: Option<bool>,
 }
 
 fn string_to_bool<'de, D>(deserializer: D) -> Result<bool, D::Error>
@@ -48,7 +59,7 @@ where
     let s: String = Deserialize::deserialize(deserializer)?;
     let s = s.replace('"', "").to_lowercase();
     match s.as_str() {
-        "y" | "yes" | "1" => Ok(true),
+        "y" | "yes" | "true" | "1" => Ok(true),
         _ => Ok(false),
     }
 }

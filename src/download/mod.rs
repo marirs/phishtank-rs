@@ -11,10 +11,10 @@ impl PhishtankClient {
         //! let client = PhishtankClient::new("Your API Key");
         //! let res = client.download_data();
         //! ```
-        let url = format!(
+        let endpoint_url = format!(
             "{}/{}/online-valid.json.bz2",
             &self.data_endpoint, self.api_key
         );
-        http_get_bz(&self.user_agent, &url)
+        http_get_bz(&self.user_agent, &endpoint_url)
     }
 }

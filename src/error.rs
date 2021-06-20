@@ -3,6 +3,8 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum PhishtankError {
+    #[error("You must supply a URL to use this function.")]
+    InvalidUrl,
     #[error("The server has exceeded the bandwidth specified by the server administrator.")]
     BandwidthExceeded,
     #[error("Unknown error.")]

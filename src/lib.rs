@@ -7,6 +7,7 @@
 ///
 /// let client = PhishtankClient::new("YOUR API KEY");
 /// ```
+mod check;
 mod de;
 mod download;
 mod utils;
@@ -38,7 +39,7 @@ impl PhishtankClient {
         PhishtankClient {
             api_key: api_key.into(),
             data_endpoint: "https://data.phishtank.com/data".into(),
-            check_endpoint: "https://checkurl.phishtank.com/checkurl".into(),
+            check_endpoint: "https://checkurl.phishtank.com/checkurl/".into(),
             user_agent: DEFAULT_USER_AGENT.into(),
         }
     }
