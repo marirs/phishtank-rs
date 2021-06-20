@@ -44,6 +44,7 @@ fn main() {
 ## Examples
 
 - To download the database: `cargo run --example get_database <your api key>`
+- To check url in phishtank database: `cargo run --example lookup <your api key> <url>`
 
 ## Developer reference
 
