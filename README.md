@@ -1,0 +1,2 @@
+# phishtank-rs
+Phishtank API
