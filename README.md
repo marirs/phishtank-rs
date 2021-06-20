@@ -1,4 +1,7 @@
 # Phishtank API
+![Crates.io](https://img.shields.io/crates/v/phishtank)
+![docs.rs](https://img.shields.io/docsrs/phishtank/latest)
+[![Build Status](https://travis-ci.com/marirs/phishtank-rs.svg?branch=master)](https://travis-ci.com/marirs/phishtank-rs)
 
 Phishtank API gives access to phishtank to download the phishtank database or lookup for a url in phishtank database.
 
