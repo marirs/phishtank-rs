@@ -1,7 +1,7 @@
 use crate::{de::PhishingDB, utils::http_get_bz, PhishtankClient, PhishtankResult};
 
 impl PhishtankClient {
-    pub fn download_data(&self) -> PhishtankResult<Vec<PhishingDB>> {
+    pub fn download_db(&self) -> PhishtankResult<Vec<PhishingDB>> {
         //! Get the database for saving & local lookup's
         //!
         //! ## Example Usage
@@ -9,7 +9,7 @@ impl PhishtankClient {
         //! use phishtank::PhishtankClient;
         //!
         //! let client = PhishtankClient::new("Your API Key");
-        //! let res = client.download_data();
+        //! let res = client.download_db();
         //! ```
         let endpoint_url = format!(
             "{}/{}/online-valid.json.bz2",

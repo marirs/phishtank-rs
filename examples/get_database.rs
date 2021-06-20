@@ -10,7 +10,7 @@ fn main() {
     };
 
     let limit = 5;
-    let res = PhishtankClient::new(&api_key).download_data();
+    let res = PhishtankClient::new(&api_key).download_db();
     match res {
         Ok(data) => {
             for d in data.iter().take(limit) {

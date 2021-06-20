@@ -8,7 +8,7 @@ Phishtank API gives access to phishtank to download the phishtank database or lo
 ## Usage
 ```toml
 [dependencies]
-phishtank = "0.0.2"
+phishtank = "0.1.0"
 ```
 and then
 ```rust
@@ -27,7 +27,7 @@ fn main() {
     let limit = 5;
     let res = PhishtankClient::new(&api_key)
         .user_agent("phishtank/[username]")
-        .download_data();
+        .download_db();
     
     match res {
         Ok(data) => {
